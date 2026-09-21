@@ -1,0 +1,9 @@
+{
+  "uuid": "supervise-indicator@joao.local",
+  "name": "Supervise Nobreak",
+  "description": "Estado do nobreak (Ragtech Easy Pro / Supervise): bateria, carga e tensao de entrada, lidos do log do servico Supervise. Nao depende de NUT nem de /sys/class/power_supply.",
+  "shell-version": ["46", "47", "48", "49", "50", "51"],
+  "settings-schema": "org.gnome.shell.extensions.supervise-indicator",
+  "url": "https://github.com/joao-42/supervise-indicator",
+  "version": 1
+}

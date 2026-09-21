@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.supervise-indicator" path="/org/gnome/shell/extensions/supervise-indicator/">
+
+    <key name="panel-contents" type="s">
+      <default>'icon-percent'</default>
+      <summary>Conteudo no painel</summary>
+      <description>hidden = nada; icon = so o icone; percent = so o percentual; icon-percent = icone + percentual; icon-and-percent = icone + espaco + percentual.</description>
+    </key>
+
+    <key name="use-colors" type="b">
+      <default>true</default>
+      <summary>Colorir por estado</summary>
+      <description>Verde em rede, amarelo em modo bateria, vermelho com bateria baixa, cinza sem leitura.</description>
+    </key>
+
+    <key name="low-battery-threshold" type="i">
+      <default>30</default>
+      <range min="5" max="90"/>
+      <summary>Limiar de bateria baixa (%)</summary>
+      <description>Abaixo deste valor, o indicador fica vermelho.</description>
+    </key>
+
+    <key name="update-interval" type="i">
+      <default>5</default>
+      <range min="1" max="300"/>
+      <summary>Intervalo de atualizacao (segundos)</summary>
+      <description>O log de 1 h (loghora.rgt) e escrito a cada segundo; ler a cada 5 s basta.</description>
+    </key>
+
+    <key name="stale-after" type="i">
+      <default>60</default>
+      <range min="10" max="3600"/>
+      <summary>Considerar parado depois de (segundos)</summary>
+      <description>Se o registro mais novo for mais antigo que isso, o estado vira "parado" (cinza) - significa que o supsrv nao esta gravando.</description>
+    </key>
+
+  </schema>
+</schemalist>

@@ -1,0 +1,10 @@
+{
+  "name": "supervise-indicator",
+  "private": true,
+  "type": "module",
+  "description": "Indicador de nobreak (Supervise) para o GNOME Shell. O type=module existe so para o Node importar logReader.js nos testes; o GNOME Shell ignora este arquivo.",
+  "scripts": {
+    "test": "node tests/parse.test.mjs",
+    "build": "glib-compile-schemas schemas"
+  }
+}

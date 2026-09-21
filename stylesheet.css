@@ -1,0 +1,9 @@
+/* Estilo do indicador. Mantido minimo de proposito. */
+
+.supervise-indicator-box {
+    spacing: 4px;
+}
+
+.supervise-indicator-header {
+    font-weight: bold;
+}

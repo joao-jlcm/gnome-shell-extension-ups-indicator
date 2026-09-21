@@ -1,0 +1,9 @@
+# Build do schema (gerado por glib-compile-schemas)
+schemas/gschemas.compiled
+
+# Node (o package.json existe só para os testes)
+node_modules/
+
+# Editor
+*.swp
+.zed/
