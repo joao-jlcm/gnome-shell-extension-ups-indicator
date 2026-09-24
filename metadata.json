@@ -1,10 +1,10 @@
 {
-  "uuid": "supervise-indicator@joao-jlcm.github.io",
-  "name": "Supervise Indicator",
-  "description": "UPS status (Ragtech Easy Pro / Supervise): battery, load and input voltage, read from the Supervise service log. Does not depend on NUT or /sys/class/power_supply. Tested only with the Ragtech Easy Pro 1200VA; report compatibility issues on GitHub.",
+  "uuid": "ups-indicator@joao-jlcm.github.io",
+  "name": "UPS Indicator",
+  "description": "UPS status (Ragtech Easy Pro), read from the Supervise service log. Does not depend on NUT or /sys/class/power_supply. Tested only with the Ragtech Easy Pro 1200VA; report compatibility issues on GitHub. Not affiliated with Ragtech/Microsol; Supervise is a trademark of its respective owner.",
   "shell-version": ["46", "47", "48", "49", "50", "51"],
-  "settings-schema": "org.gnome.shell.extensions.supervise-indicator",
-  "gettext-domain": "supervise-indicator",
-  "url": "https://github.com/joao-jlcm/supervise-indicator",
+  "settings-schema": "org.gnome.shell.extensions.ups-indicator",
+  "gettext-domain": "ups-indicator",
+  "url": "https://github.com/joao-jlcm/ups-indicator",
   "version": 1
 }

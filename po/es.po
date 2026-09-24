@@ -1,12 +1,12 @@
-# Spanish translation for the Supervise Indicator extension.
+# Spanish translation for the UPS Indicator extension.
 # This file is distributed under the same license as the package.
 # Joao Cagnoni <joao.jlcm@proton.me>, 2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Supervise Indicator 1\n"
+"Project-Id-Version: UPS Indicator 1\n"
 "Report-Msgid-Bugs-To: joao.jlcm@proton.me\n"
-"POT-Creation-Date: 2026-09-24 15:34-0300\n"
+"POT-Creation-Date: 2026-09-24 15:59-0300\n"
 "PO-Revision-Date: 2026-09-22 14:52-0300\n"
 "Last-Translator: Joao Cagnoni <joao.jlcm@proton.me>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -70,8 +70,8 @@ msgid "State %d"
 msgstr "Estado %d"
 
 #: extension.js:75 extension.js:108
-msgid "Supervise Indicator"
-msgstr "Indicador Supervise"
+msgid "UPS Indicator"
+msgstr "Indicador UPS"
 
 #: extension.js:114
 msgid "Voltage"

@@ -1,6 +1,6 @@
 #!/usr/bin/env -S gjs -m
 /*
- * Standalone About dialog for the Supervise Indicator extension.
+ * Standalone About dialog for the UPS Indicator extension.
  *
  * GNOME Shell itself is Clutter/St, not GTK, so the panel menu cannot create an
  * Adw.AboutDialog. The extension launches this tiny libadwaita app in its own

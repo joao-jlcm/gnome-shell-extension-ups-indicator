@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Joao Cagnoni
-# This file is distributed under the same license as the Supervise Indicator package.
+# This file is distributed under the same license as the UPS Indicator package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Supervise Indicator 1\n"
+"Project-Id-Version: UPS Indicator 1\n"
 "Report-Msgid-Bugs-To: joao.jlcm@proton.me\n"
-"POT-Creation-Date: 2026-09-24 15:45-0300\n"
+"POT-Creation-Date: 2026-09-24 15:59-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,7 +71,7 @@ msgid "State %d"
 msgstr ""
 
 #: extension.js:75 extension.js:108
-msgid "Supervise Indicator"
+msgid "UPS Indicator"
 msgstr ""
 
 #: extension.js:114

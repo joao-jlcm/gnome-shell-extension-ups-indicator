@@ -1,4 +1,4 @@
-# Supervise Indicator (GNOME Shell extension)
+# UPS Indicator (GNOME Shell extension)
 
 UPS indicator for the **Ragtech Easy Pro 4162** in the GNOME Shell panel, reading
 data straight from the **Supervise** service — no NUT, no
@@ -10,7 +10,7 @@ data straight from the **Supervise** service — no NUT, no
 
 Tested **only** with the **Ragtech Easy Pro 1200VA** (model 4162) UPS. Other
 models may use a different protocol or log layout — compatibility issues can be
-reported as an [issue on GitHub](https://github.com/joao-jlcm/supervise-indicator/issues).
+reported as an [issue on GitHub](https://github.com/joao-jlcm/ups-indicator/issues).
 
 ## Why not NUT
 
@@ -71,7 +71,7 @@ timezone offset before comparing; without that, a live daemon looks stale.
 English is the source language; all UI strings are gettext msgids. Translations
 live in `po/` and are compiled into `locale/`:
 
-    npm run pot           # regenerate po/supervise-indicator.pot from the sources
+    npm run pot           # regenerate po/ups-indicator.pot from the sources
     npm run translations  # compile every po/<lang>.po into locale/<lang>/LC_MESSAGES/
 
 To add a language, create `po/<lang>.po` (from the POT) and add the language code
@@ -89,10 +89,10 @@ to `po/LINGUAS`.
 
 ## Installation
 
-    ln -s "$PWD" ~/.local/share/gnome-shell/extensions/supervise-indicator@joao-jlcm.github.io
+    ln -s "$PWD" ~/.local/share/gnome-shell/extensions/ups-indicator@joao-jlcm.github.io
     npm run build          # compile the gsettings schema
     npm run translations   # compile the translations
-    gnome-extensions enable supervise-indicator@joao-jlcm.github.io
+    gnome-extensions enable ups-indicator@joao-jlcm.github.io
 
 On Wayland, brand-new extensions only load after logout/login.
 
@@ -115,6 +115,12 @@ If `supsrv` is not running there is no new log: the indicator turns **grey** and
 shows the age of the last reading instead of displaying stale data as if it were
 current. See [`install-supervise-systemd.sh`] in the dotfiles/config repository —
 the service is what keeps the log alive.
+
+## Trademarks
+
+UPS Indicator is an independent, unofficial project, not affiliated with,
+endorsed by or sponsored by Ragtech or Microsol. "Supervise" is a trademark of
+its respective owner, used here descriptively to indicate compatibility.
 
 ## License
 

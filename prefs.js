@@ -1,5 +1,5 @@
 /*
- * Preferences for the Supervise Indicator extension.
+ * Preferences for the UPS Indicator extension.
  * Direct gsettings bindings - no logic of its own.
  *
  * Note: gettext is initialized only after the module is imported, so `_()`

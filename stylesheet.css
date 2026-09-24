@@ -1,17 +1,17 @@
 /* Estilo do indicador. Mantido minimo de proposito. */
 
-.supervise-indicator-box {
+.ups-indicator-box {
     spacing: 4px;
 }
 
-.supervise-indicator-header {
+.ups-indicator-header {
     font-weight: bold;
 }
 
-.supervise-indicator-row {
+.ups-indicator-row {
     min-width: 240px;
 }
 
-.supervise-indicator-value {
+.ups-indicator-value {
     text-align: right;
 }

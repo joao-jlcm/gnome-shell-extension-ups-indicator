@@ -1,4 +1,4 @@
-# Supervise Indicator (extensión de GNOME Shell)
+# UPS Indicator (extensión de GNOME Shell)
 
 Indicador del SAI **Ragtech Easy Pro 4162** en el panel de GNOME Shell, leyendo
 los datos directamente del servicio **Supervise** — sin NUT, sin
@@ -12,7 +12,7 @@ los datos directamente del servicio **Supervise** — sin NUT, sin
 Probada **solo** con el SAI **Ragtech Easy Pro 1200VA** (modelo 4162). Otros
 modelos pueden usar un protocolo o diseño de log distinto — los problemas de
 compatibilidad se pueden reportar como una
-[issue en GitHub](https://github.com/joao-jlcm/supervise-indicator/issues).
+[issue en GitHub](https://github.com/joao-jlcm/ups-indicator/issues).
 
 ## Por qué no NUT
 
@@ -73,7 +73,7 @@ suma el desfase horario antes de comparar; sin eso, un daemon vivo parece deteni
 El inglés es el idioma fuente; todas las cadenas de UI son msgids de gettext. Las
 traducciones viven en `po/` y se compilan en `locale/`:
 
-    npm run pot           # regenera po/supervise-indicator.pot desde el código
+    npm run pot           # regenera po/ups-indicator.pot desde el código
     npm run translations  # compila cada po/<lang>.po en locale/<lang>/LC_MESSAGES/
 
 Para añadir un idioma, crea `po/<lang>.po` (a partir del POT) y agrega el código
@@ -91,10 +91,10 @@ del idioma a `po/LINGUAS`.
 
 ## Instalación
 
-    ln -s "$PWD" ~/.local/share/gnome-shell/extensions/supervise-indicator@joao-jlcm.github.io
+    ln -s "$PWD" ~/.local/share/gnome-shell/extensions/ups-indicator@joao-jlcm.github.io
     npm run build          # compila el esquema de gsettings
     npm run translations   # compila las traducciones
-    gnome-extensions enable supervise-indicator@joao-jlcm.github.io
+    gnome-extensions enable ups-indicator@joao-jlcm.github.io
 
 En Wayland, las extensiones nuevas solo se cargan tras cerrar y volver a iniciar sesión.
 
@@ -117,6 +117,13 @@ Si `supsrv` no está en ejecución, no hay log nuevo: el indicador se vuelve **g
 y muestra la antigüedad de la última lectura en lugar de mostrar datos viejos como
 si fueran actuales. Ver [`install-supervise-systemd.sh`] en el repositorio de
 dotfiles/config — el servicio es lo que mantiene el log vivo.
+
+## Marcas
+
+UPS Indicator es un proyecto independiente y no oficial, sin afiliación,
+respaldo ni patrocinio de Ragtech o Microsol. "Supervise" es una marca
+registrada de su respectivo propietario, usada aquí de forma descriptiva para
+indicar compatibilidad.
 
 ## Licencia
 

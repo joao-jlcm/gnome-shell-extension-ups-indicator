@@ -14,7 +14,7 @@ dev: ## Nested GNOME Shell window for testing (needs mutter-devkit)
 pack: ## Build the zip for extensions.gnome.org
 	npm run pack
 
-pot: ## Regenerate po/supervise-indicator.pot from the sources
+pot: ## Regenerate po/ups-indicator.pot from the sources
 	npm run pot
 
 preview: ## Print the menu content from the real log (no shell needed)

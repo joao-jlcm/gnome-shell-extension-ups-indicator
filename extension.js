@@ -1,5 +1,5 @@
 /*
- * Supervise Indicator - UPS status indicator for the GNOME Shell panel.
+ * UPS Indicator - UPS status indicator for the GNOME Shell panel.
  *
  * It uses neither NUT nor /sys/class/power_supply: it reads the history log
  * written by the Supervise service (supsrv), which is world-readable. No helper
@@ -72,13 +72,13 @@ function stateText(record) {
 const SuperviseIndicator = GObject.registerClass(
 class SuperviseIndicator extends PanelMenu.Button {
     _init(settings) {
-        super._init(0.0, _('Supervise Indicator'), false);
+        super._init(0.0, _('UPS Indicator'), false);
 
         this._settings = settings;
         this._superviseDir = Gio.File.new_for_path(SUPERVISE_DIR);
 
         this._box = new St.BoxLayout({
-            style_class: 'panel-status-indicators-box supervise-indicator-box',
+            style_class: 'panel-status-indicators-box ups-indicator-box',
         });
         this._icon = new St.Icon({icon_name: 'battery-symbolic', style_class: 'system-status-icon'});
         this._label = new St.Label({y_align: 2 /* Clutter.ActorAlign.CENTER */});
@@ -105,9 +105,9 @@ class SuperviseIndicator extends PanelMenu.Button {
     }
 
     _buildMenu() {
-        this._header = new PopupMenu.PopupMenuItem(_('Supervise Indicator'), {reactive: true, hover: false, can_focus: false});
+        this._header = new PopupMenu.PopupMenuItem(_('UPS Indicator'), {reactive: true, hover: false, can_focus: false});
         this._header.track_hover = false;
-        this._header.label.add_style_class_name('supervise-indicator-header');
+        this._header.label.add_style_class_name('ups-indicator-header');
         this.menu.addMenuItem(this._header);
         this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
@@ -141,7 +141,7 @@ class SuperviseIndicator extends PanelMenu.Button {
         // active (sensitive = normal text colour) but drop hover/focus.
         const item = new PopupMenu.PopupBaseMenuItem({reactive: true, hover: false, can_focus: false});
         item.track_hover = false;   // sensitive (normal colour) but no hover highlight
-        item.add_style_class_name('supervise-indicator-row');
+        item.add_style_class_name('ups-indicator-row');
         const label = new St.Label({
             text: title,
             x_expand: true,
@@ -152,7 +152,7 @@ class SuperviseIndicator extends PanelMenu.Button {
             text: '—',
             x_align: Clutter.ActorAlign.END,
             y_align: Clutter.ActorAlign.CENTER,
-            style_class: 'supervise-indicator-value',
+            style_class: 'ups-indicator-value',
         });
         item.add_child(label);
         item.add_child(value);
