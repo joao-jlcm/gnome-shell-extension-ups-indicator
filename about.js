@@ -48,7 +48,7 @@ app.connect('activate', () => {
         application_name: meta.name,
         application_icon: 'battery-symbolic',
         developer_name: 'Joao Cagnoni',
-        version: meta.version != null ? `v${meta.version}` : '',
+        version: meta['version-name'] ? `v${meta['version-name']}` : (meta.version != null ? `v${meta.version}` : ''),
         developers: ['Joao Cagnoni <joao.jlcm@proton.me>'],
         copyright: '© 2026 Joao Cagnoni',
         comments: meta.description,
