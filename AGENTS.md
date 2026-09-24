@@ -41,6 +41,7 @@ README.md               index with language links — README.en.md, README.pt.md
 | `npm run pot` | regenerate `po/supervise-indicator.pot` from `extension.js`/`prefs.js` |
 | `npm run translations` | compile every `po/<lang>.po` into `locale/<lang>/LC_MESSAGES/` |
 | `npm run pack` | build the extensions.gnome.org zip (compiles `po/` into `locale/`) |
+| `npm run release` | `pot` + `translations` + `pack` in one go |
 
 `make <target>` mirrors every npm script (`make help` lists them).
 

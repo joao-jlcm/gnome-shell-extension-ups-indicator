@@ -1,4 +1,4 @@
-.PHONY: help build dev pack pot preview test translations
+.PHONY: help build dev pack pot preview release test translations
 
 .DEFAULT_GOAL := help
 
@@ -19,6 +19,9 @@ pot: ## Regenerate po/supervise-indicator.pot from the sources
 
 preview: ## Print the menu content from the real log (no shell needed)
 	npm run preview
+
+release: ## Regenerate POT, compile translations, then build the zip (pot + translations + pack)
+	npm run release
 
 test: ## Run the parser and classification tests
 	npm run test

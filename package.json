@@ -10,6 +10,7 @@
     "build": "glib-compile-schemas schemas",
     "pot": "xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ --keyword=ngettext:1,2 --keyword=pgettext:1c,2 --package-name=\"Supervise Indicator\" --package-version=1 --msgid-bugs-address=joao.jlcm@proton.me --copyright-holder=\"Joao Cagnoni\" --output=po/supervise-indicator.pot extension.js prefs.js",
     "translations": "for lang in $(cat po/LINGUAS); do mkdir -p locale/$lang/LC_MESSAGES && msgfmt --check -o locale/$lang/LC_MESSAGES/supervise-indicator.mo po/$lang.po; done",
-    "pack": "gnome-extensions pack --podir=po --gettext-domain=supervise-indicator --extra-source=logReader.js --extra-source=panelValue.js --extra-source=about.js --extra-source=LICENSE --force"
+    "pack": "gnome-extensions pack --podir=po --gettext-domain=supervise-indicator --extra-source=logReader.js --extra-source=panelValue.js --extra-source=about.js --extra-source=LICENSE --force",
+    "release": "npm run pot && npm run translations && npm run pack"
   }
 }
