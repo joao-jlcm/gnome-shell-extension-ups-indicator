@@ -7,7 +7,7 @@ Requires the **Supervise v6** software (the `supsrv` daemon) installed at
 [Supervise Personal 6.3, linux64](https://ragtech.com.br/Softwares_download/supervise_personal_6.3_linux64.tar.gz).
 
 Tested **only** with the **Ragtech Easy Pro 1200VA** UPS; report compatibility
-issues as a [GitHub issue](https://github.com/joao-jlcm/ups-indicator/issues).
+issues as a [GitHub issue](https://github.com/joao-jlcm/gnome-shell-extension-ups-indicator/issues).
 
 Full documentation:
 

@@ -11,7 +11,7 @@ dados direto do serviço **Supervise** — sem NUT, sem `/sys/class/power_supply
 Testada **apenas** com o nobreak **Ragtech Easy Pro 1200VA** (modelo 4162). Outros
 modelos podem usar protocolo ou leiaute de log diferente — problemas de
 compatibilidade podem ser reportados como uma
-[issue no GitHub](https://github.com/joao-jlcm/ups-indicator/issues).
+[issue no GitHub](https://github.com/joao-jlcm/gnome-shell-extension-ups-indicator/issues).
 
 ## Por que não NUT
 

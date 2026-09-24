@@ -10,7 +10,7 @@ data straight from the **Supervise** service — no NUT, no
 
 Tested **only** with the **Ragtech Easy Pro 1200VA** (model 4162) UPS. Other
 models may use a different protocol or log layout — compatibility issues can be
-reported as an [issue on GitHub](https://github.com/joao-jlcm/ups-indicator/issues).
+reported as an [issue on GitHub](https://github.com/joao-jlcm/gnome-shell-extension-ups-indicator/issues).
 
 ## Why not NUT
 

@@ -12,7 +12,7 @@ los datos directamente del servicio **Supervise** — sin NUT, sin
 Probada **solo** con el SAI **Ragtech Easy Pro 1200VA** (modelo 4162). Otros
 modelos pueden usar un protocolo o diseño de log distinto — los problemas de
 compatibilidad se pueden reportar como una
-[issue en GitHub](https://github.com/joao-jlcm/ups-indicator/issues).
+[issue en GitHub](https://github.com/joao-jlcm/gnome-shell-extension-ups-indicator/issues).
 
 ## Por qué no NUT
 

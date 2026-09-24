@@ -5,6 +5,6 @@
   "shell-version": ["46", "47", "48", "49", "50", "51"],
   "settings-schema": "org.gnome.shell.extensions.ups-indicator",
   "gettext-domain": "ups-indicator",
-  "url": "https://github.com/joao-jlcm/ups-indicator",
+  "url": "https://github.com/joao-jlcm/gnome-shell-extension-ups-indicator",
   "version": 1
 }
