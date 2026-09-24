@@ -7,3 +7,11 @@
 .supervise-indicator-header {
     font-weight: bold;
 }
+
+.supervise-indicator-row {
+    min-width: 240px;
+}
+
+.supervise-indicator-value {
+    text-align: right;
+}

@@ -1,55 +1,63 @@
 /*
- * Leitor do log de historico do Supervise (nobreak Ragtech/Microsol).
+ * Reader for the Supervise history log (Ragtech/Microsol UPS).
  *
- * Modulo puro: nao importa nada do GNOME e nao faz I/O. Recebe bytes e devolve
- * registros. Isso e o que permite testar com `node tests/parse.test.mjs`.
+ * Pure module: imports nothing from GNOME and does no I/O. It receives bytes
+ * and returns records. That is what allows testing with `node tests/parse.test.mjs`.
  *
- * Formato: arquivos .rgt sao sequencias de registros de 72 bytes:
+ * Format: .rgt files are sequences of 72-byte records:
  *   offset 0  uint32 LE  timestamp
- *   offset 4  uint16 LE  h1 (0x0255, constante)
- *   offset 6  uint16 LE  estado (ver STATE_LABELS)
- *   offset 8  uint16 LE  h3 (0xFFFF = sem comunicacao com o nobreak)
- *   offset 12 7x float32 LE  Vin, Vout, Iout(A), carga(%), Hz, Vbat, bateria(%)
+ *   offset 4  uint16 LE  h1 (0x0255, constant)
+ *   offset 6  uint16 LE  state (see STATE_LABELS)
+ *   offset 8  uint16 LE  h3 (0xFFFF = no communication with the UPS)
+ *   offset 12 7x float32 LE  Vin, Vout, Iout(A), load(%), Hz, Vbat, battery(%)
  *
- * Pegadinha do timestamp: o Supervise grava a hora LOCAL como se fosse UTC, o
- * que deixa o epoch adiantado em relacao ao relogio real (3 h aqui, UTC-3).
- * Por isso `tzOffsetMinutes` e somado antes de qualquer comparacao - sem isso um
- * daemon vivo parece 3 h parado.
+ * Timestamp gotcha: Supervise writes the LOCAL time as if it were UTC, which
+ * shifts the epoch relative to the real clock (3 h here, UTC-3). That is why
+ * `tzOffsetMinutes` is added before any comparison - without it a live daemon
+ * looks 3 h stale.
+ *
+ * The labels below are the canonical English source strings (gettext msgids);
+ * the UI layer translates them with `_()`. This module stays language-neutral
+ * so it can run under plain Node.
  */
 
 export const RECORD_SIZE = 72;
 export const VALUE_OFFSET = 12;
-export const FIELD_NAMES = ['vin', 'vout', 'iout', 'load', 'hz', 'vbat', 'battery'];
+// Order confirmed against `csupcli` (Supervise 6.3) on a Ragtech Easy Pro
+// 1200VA: @12 vin, @16 vout, @20 iout, @24 load, @28 hz, @32 vbat,
+// @36 temperature (degC), @40 battery charge (%).
+export const FIELD_NAMES = ['vin', 'vout', 'iout', 'load', 'hz', 'vbat', 'temp', 'battery'];
+export const FIRMWARE_OFFSET = 44;
 export const OFFLINE = 0xffff;
 
-// Epoch plausivel: descarta slots pre-alocados (zero) e lixo (0xffffffff).
+// Plausible epoch: discards pre-allocated slots (zero) and garbage (0xffffffff).
 const EPOCH_MIN = 1_600_000_000;
 const EPOCH_MAX = 2_000_000_000;
 
 export const STATE_LABELS = {
-    10: 'Bateria',
-    11: 'Rede',
-    15: 'Iniciando',
-    18: 'Rede normal',
-    21: 'Rede baixa',
-    22: 'Rede alta',
-    24: 'Sem rede',
-    26: 'Bateria baixa',
-    27: 'Bateria normal',
-    29: 'Bateria cheia',
-    31: 'Rede',
+    10: 'On battery',
+    11: 'On AC power',
+    15: 'Starting up',
+    18: 'AC power normal',
+    21: 'AC voltage low',
+    22: 'AC voltage high',
+    24: 'No AC power',
+    26: 'Low battery',
+    27: 'Battery normal',
+    29: 'Battery full',
+    31: 'On AC power',
 };
 
 /**
- * Converte o conteudo binario de um .rgt em registros, do mais antigo ao mais novo.
+ * Converts the binary contents of a .rgt file into records, oldest to newest.
  * @param {Uint8Array|ArrayBuffer} buffer
  * @returns {Array<{ts: number, state: number, offline: boolean, values: Object}>}
- *   ts em milissegundos ja corrigido para o fuso local.
+ *   ts in milliseconds, already corrected for the local timezone.
  */
 export function parseRecords(buffer) {
     const bytes = buffer instanceof Uint8Array ? buffer : new Uint8Array(buffer);
     const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
-    const tzShift = new Date().getTimezoneOffset() * 60; // segundos: hora local gravada como UTC
+    const tzShift = new Date().getTimezoneOffset() * 60; // seconds: local time stored as UTC
     const records = [];
 
     for (let offset = 0; offset + RECORD_SIZE <= bytes.byteLength; offset += RECORD_SIZE) {
@@ -63,6 +71,7 @@ export function parseRecords(buffer) {
         const values = {};
         for (let i = 0; i < FIELD_NAMES.length; i++)
             values[FIELD_NAMES[i]] = view.getFloat32(VALUE_OFFSET + offset + i * 4, true);
+        values.firmware = view.getFloat32(offset + FIRMWARE_OFFSET, true);
 
         records.push({
             ts: (rawTs + tzShift) * 1000,
@@ -77,8 +86,8 @@ export function parseRecords(buffer) {
 }
 
 /**
- * Registro mais novo de um ou mais arquivos. Cada item de `files` deve ser
- * `{contents}` (o modulo nao le disco).
+ * Newest record across one or more files. Each item of `files` must be
+ * `{contents}` (the module does not read from disk).
  */
 export function latestRecord(files) {
     let best = null;
@@ -93,43 +102,51 @@ export function latestRecord(files) {
     return best;
 }
 
-/** Idade do registro em segundos (negativa se o registro esta no futuro). */
+/** Age of the record in seconds (negative if the record is in the future). */
 export function ageSeconds(record, now = Date.now()) {
     if (!record)
         return Infinity;
     return (now - record.ts) / 1000;
 }
 
-/** Texto do estado, ou null quando ha leitura de verdade. */
+/** State text as an English msgid, or null when there is a real reading. */
 export function stateLabel(record) {
     if (!record)
-        return 'Sem dados';
+        return 'No data';
     if (record.offline)
-        return 'Sem comunicação';
-    return STATE_LABELS[record.state] ?? `Estado ${record.state}`;
+        return 'No communication';
+    return STATE_LABELS[record.state] ?? `State ${record.state}`;
 }
 
 /**
- * Classificacao para a UI.
- * @returns {{level: 'ok'|'battery'|'low'|'unknown', color: string, summary: string}}
+ * Classification for the UI. `summary` is an English msgid; `stale` tells the
+ * UI to append a "(stale)" marker and `hot` a "(hot)" one. The UI translates
+ * both with `_()`.
+ * @returns {{level: 'ok'|'battery'|'low'|'hot'|'unknown', color: string, summary: string, stale: boolean, hot: boolean}}
  */
-export function classify(record, {lowBattery = 30, staleAfter = 60, now = Date.now()} = {}) {
+export function classify(record, {lowBattery = 30, staleAfter = 60, highTemp = 70, now = Date.now()} = {}) {
     if (!record)
-        return {level: 'unknown', color: '#9a9996', summary: 'Sem dados'};
+        return {level: 'unknown', color: '#9a9996', summary: 'No data', stale: false, hot: false};
 
     const age = ageSeconds(record, now);
     const battery = record.values.battery;
+    const temp = record.values.temp;
     const summary = stateLabel(record);
+    const hot = Number.isFinite(temp) && temp >= highTemp;
 
-    if (record.offline || age > staleAfter)
-        return {level: 'unknown', color: '#9a9996', summary: `${summary} (parado)`};
+    if (record.offline)
+        return {level: 'unknown', color: '#9a9996', summary, stale: false, hot: false};
+    if (age > staleAfter)
+        return {level: 'unknown', color: '#9a9996', summary, stale: true, hot: false};
 
-    // 10 = modo bateria, 24 = ausencia de rede eletrica
+    // 10 = battery mode, 24 = mains power absent
     const onBattery = record.state === 10 || record.state === 24;
     if (record.state === 26 || battery < lowBattery)
-        return {level: 'low', color: '#e01b24', summary};
+        return {level: 'low', color: '#e01b24', summary, stale: false, hot};
+    if (hot)
+        return {level: 'hot', color: '#ff7800', summary, stale: false, hot: true};
     if (onBattery)
-        return {level: 'battery', color: '#e5a50a', summary};
+        return {level: 'battery', color: '#e5a50a', summary, stale: false, hot: false};
 
-    return {level: 'ok', color: '#33d17a', summary};
+    return {level: 'ok', color: '#33d17a', summary, stale: false, hot: false};
 }

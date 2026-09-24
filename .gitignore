@@ -1,7 +1,13 @@
 # Build do schema (gerado por glib-compile-schemas)
 schemas/gschemas.compiled
 
-# Node (o package.json existe só para os testes)
+# Traducoes compiladas (geradas a partir de po/ por `npm run translations`)
+locale/
+
+# Pacotes gerados por `npm run pack`
+*.zip
+
+# Node (o package.json existe so para os testes)
 node_modules/
 
 # Editor

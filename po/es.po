@@ -1,0 +1,227 @@
+# Spanish translation for the Supervise Indicator extension.
+# This file is distributed under the same license as the package.
+# Joao Cagnoni <joao.jlcm@proton.me>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Supervise Indicator 1\n"
+"Report-Msgid-Bugs-To: joao.jlcm@proton.me\n"
+"POT-Creation-Date: 2026-09-24 15:34-0300\n"
+"PO-Revision-Date: 2026-09-22 14:52-0300\n"
+"Last-Translator: Joao Cagnoni <joao.jlcm@proton.me>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: extension.js:47
+msgid "On battery"
+msgstr "Con batería"
+
+#: extension.js:48 extension.js:57
+msgid "On AC power"
+msgstr "Con red eléctrica"
+
+#: extension.js:49
+msgid "Starting up"
+msgstr "Iniciando"
+
+#: extension.js:50
+msgid "AC power normal"
+msgstr "Red normal"
+
+#: extension.js:51
+msgid "AC voltage low"
+msgstr "Tensión de red baja"
+
+#: extension.js:52
+msgid "AC voltage high"
+msgstr "Tensión de red alta"
+
+#: extension.js:53
+msgid "No AC power"
+msgstr "Sin red eléctrica"
+
+#: extension.js:54
+msgid "Low battery"
+msgstr "Batería baja"
+
+#: extension.js:55
+msgid "Battery normal"
+msgstr "Batería normal"
+
+#: extension.js:56
+msgid "Battery full"
+msgstr "Batería llena"
+
+#: extension.js:66
+msgid "No data"
+msgstr "Sin datos"
+
+#: extension.js:68
+msgid "No communication"
+msgstr "Sin comunicación"
+
+#: extension.js:69
+#, javascript-format
+msgid "State %d"
+msgstr "Estado %d"
+
+#: extension.js:75 extension.js:108
+msgid "Supervise Indicator"
+msgstr "Indicador Supervise"
+
+#: extension.js:114
+msgid "Voltage"
+msgstr "Tensión"
+
+#: extension.js:115
+msgid "Output current"
+msgstr "Corriente de salida"
+
+#: extension.js:116
+msgid "Load"
+msgstr "Carga"
+
+#: extension.js:117
+msgid "Frequency"
+msgstr "Frecuencia"
+
+#: extension.js:118
+msgid "Battery"
+msgstr "Batería"
+
+#: extension.js:119
+msgid "Battery voltage"
+msgstr "Tensión de la batería"
+
+#: extension.js:120
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: extension.js:123
+msgid "Download Supervise"
+msgstr "Descargar Supervise"
+
+#: extension.js:129
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: extension.js:133
+msgid "About"
+msgstr "Acerca de"
+
+#: extension.js:246
+msgid "Supervise not found"
+msgstr "Supervise no encontrado"
+
+#: extension.js:250
+#, javascript-format
+msgid "%s (hot)"
+msgstr "%s (caliente)"
+
+#: extension.js:252
+#, javascript-format
+msgid "%s (stale)"
+msgstr "%s (detenido)"
+
+#: extension.js:262
+#, javascript-format
+msgid "UPS: %s"
+msgstr "SAI: %s"
+
+#: prefs.js:22
+msgid "Icon + value"
+msgstr "Icono + valor"
+
+#: prefs.js:23
+msgid "Icon and value (with space)"
+msgstr "Icono y valor (con espacio)"
+
+#: prefs.js:24
+msgid "Value only"
+msgstr "Solo valor"
+
+#: prefs.js:25
+msgid "Icon only"
+msgstr "Solo icono"
+
+#: prefs.js:26
+msgid "Nothing in the panel"
+msgstr "Nada en el panel"
+
+#: prefs.js:30
+msgid "Battery (%)"
+msgstr "Batería (%)"
+
+#: prefs.js:31
+msgid "Load (%)"
+msgstr "Carga (%)"
+
+#: prefs.js:32
+msgid "Input voltage (V)"
+msgstr "Tensión de entrada (V)"
+
+#: prefs.js:33
+msgid "Output voltage (V)"
+msgstr "Tensión de salida (V)"
+
+#: prefs.js:34
+msgid "Temperature (°C)"
+msgstr "Temperatura (°C)"
+
+#: prefs.js:41
+msgid "Panel"
+msgstr "Panel"
+
+#: prefs.js:42
+msgid "What appears in the top bar."
+msgstr "Lo que aparece en la barra superior."
+
+#: prefs.js:47
+msgid "Contents"
+msgstr "Contenido"
+
+#: prefs.js:58
+msgid "Panel value"
+msgstr "Valor en el panel"
+
+#: prefs.js:69
+msgid "Colour by state"
+msgstr "Colorear según el estado"
+
+#: prefs.js:70
+msgid ""
+"Green on mains, yellow on battery, red on low battery, grey without reading"
+msgstr ""
+"Verde con red, amarillo en batería, rojo con batería baja, gris sin lectura"
+
+#: prefs.js:75
+msgid "Thresholds"
+msgstr "Umbrales"
+
+#: prefs.js:79
+msgid "Low battery below (%)"
+msgstr "Batería baja por debajo de (%)"
+
+#: prefs.js:86
+msgid "Update every (seconds)"
+msgstr "Actualizar cada (segundos)"
+
+#: prefs.js:93
+msgid "Consider no reading after (seconds)"
+msgstr "Considerar sin lectura después de (segundos)"
+
+#: prefs.js:94
+msgid "Turns grey when the Supervise service stops writing"
+msgstr "Se vuelve gris cuando el servicio Supervise deja de escribir"
+
+#: prefs.js:101
+msgid "High temperature above (°C)"
+msgstr "Temperatura alta por encima de (°C)"
+
+#: prefs.js:102
+msgid "Turns the indicator orange when the inverter gets this hot"
+msgstr "Pone el indicador naranja cuando el inversor se calienta tanto"
