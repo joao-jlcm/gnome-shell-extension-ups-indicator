@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UPS Indicator 1\n"
 "Report-Msgid-Bugs-To: joao.jlcm@proton.me\n"
-"POT-Creation-Date: 2026-09-24 22:44-0300\n"
+"POT-Creation-Date: 2026-09-24 22:54-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,211 +17,211 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:47
+#: extension.js:50
 msgid "On battery"
 msgstr ""
 
-#: extension.js:48 extension.js:57
+#: extension.js:51 extension.js:60
 msgid "On AC power"
 msgstr ""
 
-#: extension.js:49
+#: extension.js:52
 msgid "Starting up"
 msgstr ""
 
-#: extension.js:50
+#: extension.js:53
 msgid "AC power normal"
 msgstr ""
 
-#: extension.js:51
+#: extension.js:54
 msgid "AC voltage low"
 msgstr ""
 
-#: extension.js:52
+#: extension.js:55
 msgid "AC voltage high"
 msgstr ""
 
-#: extension.js:53
+#: extension.js:56
 msgid "No AC power"
 msgstr ""
 
-#: extension.js:54
+#: extension.js:57
 msgid "Low battery"
 msgstr ""
 
-#: extension.js:55
+#: extension.js:58
 msgid "Battery normal"
 msgstr ""
 
-#: extension.js:56
+#: extension.js:59
 msgid "Battery full"
 msgstr ""
 
-#: extension.js:66
+#: extension.js:69
 msgid "No data"
 msgstr ""
 
-#: extension.js:68
+#: extension.js:71
 msgid "No communication"
 msgstr ""
 
-#: extension.js:69
+#: extension.js:72
 #, javascript-format
 msgid "State %d"
 msgstr ""
 
-#: extension.js:75 extension.js:108
+#: extension.js:78 extension.js:111
 msgid "UPS Indicator"
 msgstr ""
 
-#: extension.js:114
+#: extension.js:117
 msgid "Voltage"
 msgstr ""
 
-#: extension.js:115
+#: extension.js:118
 msgid "Output current"
 msgstr ""
 
-#: extension.js:116
+#: extension.js:119
 msgid "Load"
 msgstr ""
 
-#: extension.js:117
+#: extension.js:120
 msgid "Frequency"
 msgstr ""
 
-#: extension.js:118
+#: extension.js:121
 msgid "Battery"
 msgstr ""
 
-#: extension.js:119
+#: extension.js:122
 msgid "Battery voltage"
 msgstr ""
 
-#: extension.js:120
+#: extension.js:123
 msgid "Temperature"
 msgstr ""
 
-#: extension.js:123
+#: extension.js:126
 msgid "Download Supervise"
 msgstr ""
 
-#: extension.js:129
+#: extension.js:132
 msgid "Preferences"
 msgstr ""
 
-#: extension.js:133
+#: extension.js:136
 msgid "About"
 msgstr ""
 
-#: extension.js:257
+#: extension.js:260
 msgid "Supervise not found"
 msgstr ""
 
-#: extension.js:261
+#: extension.js:264
 #, javascript-format
 msgid "%s (hot)"
 msgstr ""
 
-#: extension.js:263
+#: extension.js:266
 #, javascript-format
 msgid "%s (stale)"
 msgstr ""
 
-#: extension.js:273
+#: extension.js:276
 #, javascript-format
 msgid "UPS: %s"
 msgstr ""
 
-#: prefs.js:22
+#: prefs.js:25
 msgid "Icon + value"
 msgstr ""
 
-#: prefs.js:23
+#: prefs.js:26
 msgid "Icon and value (with space)"
 msgstr ""
 
-#: prefs.js:24
+#: prefs.js:27
 msgid "Value only"
 msgstr ""
 
-#: prefs.js:25
+#: prefs.js:28
 msgid "Icon only"
 msgstr ""
 
-#: prefs.js:26
+#: prefs.js:29
 msgid "Nothing in the panel"
 msgstr ""
 
-#: prefs.js:30
+#: prefs.js:33
 msgid "Battery (%)"
 msgstr ""
 
-#: prefs.js:31
+#: prefs.js:34
 msgid "Load (%)"
 msgstr ""
 
-#: prefs.js:32
+#: prefs.js:35
 msgid "Input voltage (V)"
 msgstr ""
 
-#: prefs.js:33
+#: prefs.js:36
 msgid "Output voltage (V)"
 msgstr ""
 
-#: prefs.js:34
+#: prefs.js:37
 msgid "Temperature (°C)"
 msgstr ""
 
-#: prefs.js:41
+#: prefs.js:44
 msgid "Panel"
 msgstr ""
 
-#: prefs.js:42
+#: prefs.js:45
 msgid "What appears in the top bar."
 msgstr ""
 
-#: prefs.js:47
+#: prefs.js:50
 msgid "Contents"
 msgstr ""
 
-#: prefs.js:58
+#: prefs.js:61
 msgid "Panel value"
 msgstr ""
 
-#: prefs.js:69
+#: prefs.js:72
 msgid "Colour by state"
 msgstr ""
 
-#: prefs.js:70
+#: prefs.js:73
 msgid ""
 "Green on mains, yellow on battery, red on low battery, grey without reading"
 msgstr ""
 
-#: prefs.js:75
+#: prefs.js:78
 msgid "Thresholds"
 msgstr ""
 
-#: prefs.js:79
+#: prefs.js:82
 msgid "Low battery below (%)"
 msgstr ""
 
-#: prefs.js:86
+#: prefs.js:89
 msgid "Update every (seconds)"
 msgstr ""
 
-#: prefs.js:93
+#: prefs.js:96
 msgid "Consider no reading after (seconds)"
 msgstr ""
 
-#: prefs.js:94
+#: prefs.js:97
 msgid "Turns grey when the Supervise service stops writing"
 msgstr ""
 
-#: prefs.js:101
+#: prefs.js:104
 msgid "High temperature above (°C)"
 msgstr ""
 
-#: prefs.js:102
+#: prefs.js:105
 msgid "Turns the indicator orange when the inverter gets this hot"
 msgstr ""
