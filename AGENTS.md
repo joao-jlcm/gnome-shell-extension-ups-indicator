@@ -45,6 +45,17 @@ README.md               index with language links — README.en.md, README.pt.md
 
 `make <target>` mirrors every npm script (`make help` lists them).
 
+## Versioning and releases
+
+- **Semantic versioning, three parts** (`vX.Y.Z`) for tags and releases.
+- `metadata.json` keeps **two** version fields: `version` (integer — required by
+  GNOME) and `version-name` (semver string, e.g. `1.0.0`). The About dialog
+  shows `v<version-name>`.
+- Release flow: bump `version` + `version-name` → `make release` (POT +
+  translations + zip) → commit → tag and publish with
+  `gh release create vX.Y.Z <zip> --title vX.Y.Z --notes-file <file> --target main`.
+- The zip is `ups-indicator@joao-jlcm.github.io.shell-extension.zip` (gitignored).
+
 ## i18n
 
 - **English is the source language.** UI strings are gettext msgids; translations live in `po/`.
