@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UPS Indicator 1\n"
 "Report-Msgid-Bugs-To: joao.jlcm@proton.me\n"
-"POT-Creation-Date: 2026-09-24 16:06-0300\n"
+"POT-Creation-Date: 2026-09-24 22:44-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,21 +114,21 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: extension.js:246
+#: extension.js:257
 msgid "Supervise not found"
 msgstr ""
 
-#: extension.js:250
+#: extension.js:261
 #, javascript-format
 msgid "%s (hot)"
 msgstr ""
 
-#: extension.js:252
+#: extension.js:263
 #, javascript-format
 msgid "%s (stale)"
 msgstr ""
 
-#: extension.js:262
+#: extension.js:273
 #, javascript-format
 msgid "UPS: %s"
 msgstr ""

@@ -220,17 +220,28 @@ class SuperviseIndicator extends PanelMenu.Button {
         });
     }
 
-    /** Reads both logs and refreshes panel + menu. */
+    /** Reads both logs asynchronously, then refreshes panel + menu. */
     _read() {
-        const files = LOG_FILES.map(path => {
-            try {
-                const [ok, contents] = Gio.File.new_for_path(path).load_contents(null);
-                return ok ? {contents} : null;
-            } catch (e) {
-                return null;   // supsrv never ran, file deleted, etc.
-            }
-        });
+        let pending = LOG_FILES.length;
+        const files = new Array(LOG_FILES.length).fill(null);
 
+        LOG_FILES.forEach((path, i) => {
+            const file = Gio.File.new_for_path(path);
+            file.load_contents_async(null, (source, res) => {
+                try {
+                    const [ok, contents] = file.load_contents_finish(res);
+                    files[i] = ok ? {contents} : null;
+                } catch (e) {
+                    files[i] = null;   // supsrv never ran, file deleted, etc.
+                }
+                if (--pending === 0)
+                    this._processRead(files);
+            });
+        });
+    }
+
+    /** Applies the loaded logs to the panel + menu. */
+    _processRead(files) {
         const missing = !this._superviseDir.query_exists(null);
         const record = latestRecord(files);
         const classification = classify(record, {
