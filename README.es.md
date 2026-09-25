@@ -127,4 +127,4 @@ indicar compatibilidad.
 
 ## Licencia
 
-GPL-3.0. Consulte [`LICENSE`](LICENSE).
+GPL-3.0-or-later. Consulte [`LICENSE`](LICENSE).

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Joao Cagnoni
+
 /*
  * UPS Indicator - UPS status indicator for the GNOME Shell panel.
  *

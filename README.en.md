@@ -124,4 +124,4 @@ its respective owner, used here descriptively to indicate compatibility.
 
 ## License
 
-GPL-3.0. See [`LICENSE`](LICENSE).
+GPL-3.0-or-later. See [`LICENSE`](LICENSE).

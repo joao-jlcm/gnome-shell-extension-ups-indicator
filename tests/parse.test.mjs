@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Joao Cagnoni
+
 /*
  * Tests for the parser and the classification.
  * Run with plain Node: `node tests/parse.test.mjs` from the repo root.

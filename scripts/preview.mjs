@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Joao Cagnoni
+
 /*
  * Terminal preview of the panel menu, built from the real Supervise log.
  * No GNOME Shell needed: useful to check the values without a logout/login.

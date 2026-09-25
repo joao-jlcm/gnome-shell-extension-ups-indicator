@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Joao Cagnoni
+
 /*
  * Preferences for the UPS Indicator extension.
  * Direct gsettings bindings - no logic of its own.

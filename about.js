@@ -1,4 +1,6 @@
 #!/usr/bin/env -S gjs -m
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Joao Cagnoni
 /*
  * Standalone About dialog for the UPS Indicator extension.
  *

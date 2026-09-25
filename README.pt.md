@@ -125,4 +125,4 @@ respectivo titular, usada aqui de forma descritiva para indicar compatibilidade.
 
 ## Licença
 
-GPL-3.0. Veja [`LICENSE`](LICENSE).
+GPL-3.0-or-later. Veja [`LICENSE`](LICENSE).
